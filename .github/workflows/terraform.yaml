@@ -1,11 +1,11 @@
 name: "Terraform Infrastructure Change Management Pipeline with GitHub Actions"
 
 on:
- # push:
- #   branches:
- #   - main
- #   paths:
- #   - terraform/**
+ push:
+   branches:
+   - main
+   paths:
+   - terraform/**
  pull_request:
    branches:
    - main
@@ -13,7 +13,6 @@ on:
    - terraform/**
 
 env:
- TF_LOG: INFO
  # Credentials for deployment to AWS
  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -49,7 +48,7 @@ jobs:
        run: terraform validate
      - name: Terraform plan
        id: plan
-       # if: github.event_name == 'pull_request'
+       if: github.event_name == 'pull_request'
        run: terraform plan -no-color -input=false
        continue-on-error: true
 
