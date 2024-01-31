@@ -22,7 +22,7 @@ env:
 jobs:
  terraform:
    name: "Terraform Infrastructure Change Management"
-   runs-on: ubuntu-23
+   runs-on: ubuntu-latest
    defaults:
      run:
        shell: bash
