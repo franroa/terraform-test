@@ -29,6 +29,7 @@ provider "github" {}
 resource "github_membership" "membership_for_user_x" {
   username = "user_x"
 }
+# change
 
 # Add a user to the organization
 # resource "github_membership" "membership_for_user_x" { }
