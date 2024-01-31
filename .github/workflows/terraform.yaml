@@ -33,6 +33,10 @@ jobs:
    steps:
      - name: Checkout the repository to the runner
        uses: actions/checkout@v2
+     - name: tfsec # https://github.com/aquasecurity/tfsec-pr-commenter-action
+       uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
+       with:
+          github_token: ${{ github.token }}
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
        with:
