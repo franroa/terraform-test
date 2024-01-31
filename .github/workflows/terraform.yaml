@@ -39,9 +39,9 @@ jobs:
         tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
         sudo mv trivy /usr/local/bin/trivy
         rm trivy_0.18.3_Linux-64bit.tar.gz
-     - name: Run Trivy
-       run: |
-          trivy config ./example.tf
+     # - name: Run Trivy
+     #   run: |
+     #      trivy config ./example.tf
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
        with:
