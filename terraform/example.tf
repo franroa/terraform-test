@@ -30,5 +30,7 @@ resource "github_membership" "membership_for_user_x" {
   username = "user_x"
 }
 
+# cnahge
+
 # Add a user to the organization
 # resource "github_membership" "membership_for_user_x" { }
