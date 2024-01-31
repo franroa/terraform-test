@@ -41,7 +41,7 @@ jobs:
         rm trivy_0.18.3_Linux-64bit.tar.gz
      - name: Run Trivy
        run: |
-          trivy config ./
+          trivy config ./example.tf
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
        with:
@@ -64,6 +64,10 @@ jobs:
      - name: Terraform Plan Status
        if: steps.plan.outcome == 'failure'
        run: exit 1
+     - name: Create diagram
+       run: |
+          sudo apt install graphviz
+          terraform graph -type=plan | dot -Tpng >graph.png
      - name: Terraform Apply
        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
        run: terraform apply -auto-approve -input=false
