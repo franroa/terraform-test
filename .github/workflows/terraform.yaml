@@ -41,7 +41,7 @@ jobs:
         rm trivy_0.18.3_Linux-64bit.tar.gz
      - name: Run Trivy
        run: |
-          trivy filesystem --severity HIGH,CRITICAL .
+          trivy config ./
      - name: Setup Terraform with specified version on the runner
        uses: hashicorp/setup-terraform@v2
        with:
